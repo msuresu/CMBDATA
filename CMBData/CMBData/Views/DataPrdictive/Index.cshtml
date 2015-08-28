@@ -34,37 +34,69 @@
                 </tbody>
             </table>
         </div>
-        @*<span class="col-md-4">Reason</span>
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <span>Result Type</span>
 
-            <select class="col-md-8" id="drpReason">
-                <option>All</option>
-                <option>Competition or Price</option>
-                <option>Service or Billing</option>
-            </select>*@
+                            <select id="drpChartType">
+                                <option>Default</option>                                
+                                <option>Pie</option>
+                                <option>Line</option>
+                                <option>Bar</option>                                
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
     </div>
-    <div class="placeHolder">
-        <div id="divGraphArea" class="col-md-12">
-            <div id ="divGraph1" class="table-responsive">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <div id="chartContainer_0" style="height: 300px; width: 100%;">
-                            </div>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="divGraph2" class="table-responsive">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <div id="chartContainer_1" style="height: 300px; width: 100%;">
-                            </div>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="placeHolder">
+            <div id="divGraphArea" class="col-md-12">
+                <div id="divGraph1" class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <div id="chartContainer_0" style="height: 300px; width: 70%;">
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="divGraph2" class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <div id="chartContainer_1" style="height: 300px; width: 70%;">
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="divGraph3" class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <div id="chartContainer_2" style="height: 300px; width: 70%;">
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="divGraph4" class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <div id="chartContainer_3" style="height: 300px; width: 70%;">
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
 <script src="~/Content/Scripts/DataPrediction.js"></script>

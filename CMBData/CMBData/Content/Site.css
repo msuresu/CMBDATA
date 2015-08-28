@@ -21,3 +21,7 @@ textarea {
     background-color:white !important;
     border:0.125rem solid #e7e8e9 !important;
 }
+
+.test{
+    box-shadow:2px 2px 5px #EDEDF0;
+}

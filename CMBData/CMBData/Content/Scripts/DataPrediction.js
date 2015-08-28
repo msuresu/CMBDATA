@@ -4,7 +4,10 @@ function fnGoToGraph() {
     var txtTNNumber = $("#txtTnNumber").val();
     var txtRepeatCount = $("#txtRepeatCount").val();
     var drpReason = $("#drpReason").val();
-
+    if (drpReason == "All")
+    {
+        drpReason = "";
+    }
     var serviceURL = '/DataPrdictive/getPredictData';
     var param = { strTN: txtTNNumber, strRepeatCount: txtRepeatCount, strReason: drpReason };
     $.ajax({

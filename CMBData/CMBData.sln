@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMBData", "CMBData\CMBData.csproj", "{76514476-4837-4CDA-B9AD-1A63197F8673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMBData.Tests", "CMBData.Tests\CMBData.Tests.csproj", "{141C8113-6310-430B-8862-2DA693EF277F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{76514476-4837-4CDA-B9AD-1A63197F8673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76514476-4837-4CDA-B9AD-1A63197F8673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76514476-4837-4CDA-B9AD-1A63197F8673}.Release|Any CPU.Build.0 = Release|Any CPU
-		{141C8113-6310-430B-8862-2DA693EF277F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{141C8113-6310-430B-8862-2DA693EF277F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{141C8113-6310-430B-8862-2DA693EF277F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{141C8113-6310-430B-8862-2DA693EF277F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

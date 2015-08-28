@@ -23,6 +23,7 @@ namespace CMBDataAnalytics.UIEntities
         public int YesCount { get; set; }
         public int NoCount { get; set; }
         public int TotalCount { get; set; }
+        public int RepeatCount { get; set; }
 
     }
 

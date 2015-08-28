@@ -1,6 +1,7 @@
 ﻿
 
 function fnGoToGraph() {
+    debugger;
     var txtTNNumber = $("#txtTnNumber").val();
     var txtRepeatCount = $("#txtRepeatCount").val();
     var drpReason = $("#drpReason").val();
@@ -36,19 +37,26 @@ function fnLoadBaseGraph(data)
     var graphType = "column";
 
     // ************parameters **********
-   
+    $('#chartContainer_0')[0].innerHtml = "";
+    $('#chartContainer_1')[0].innerHtml = "";;
+    $('#chartContainer_0').find("canvas").height(0);
+    $('#chartContainer_1').find("canvas").height(0);
+    $('#chartContainer_0').find("canvas").width(0);
+    $('#chartContainer_1').find("canvas").width(0);
+
     if (data && data.lstPrdic)
     {
         if(data.lstPrdic.length > 0)
         {
             
-            for (i = 0; i < data.lstPrdic.length; i++)
+            for (var counter = 0; counter < data.lstPrdic.length; counter++)
             {
-                var chart = new CanvasJS.Chart("chartContainer");
+                var chart = new CanvasJS.Chart("chartContainer_" + counter);
                 
                 chart.options.axisY = { suffix: "%" };
                 //chart.options.title = { text: "WireLine Customer Survey" };
-                chart.options.title = { text: data.lstPrdic[i].DisconnectReason };
+                debugger;
+                chart.options.title = { text: data.lstPrdic[counter].DisconnectReason };
                 chart.options.axisX = {
                     title: "Loyalty"
                 };
@@ -65,7 +73,7 @@ function fnLoadBaseGraph(data)
                     //color: "red",
                     showInLegend: true,
                     animationEnabled: true,
-                    toolTipContent: "{y} % of Customers comes under <a href = {name}> {label}</a>"
+                    toolTipContent: "{y} % of Customers are Eligible for <a href = {name}> {label}</a> of 25$"
 
                 };
                 chart.options.data = [];
@@ -74,8 +82,8 @@ function fnLoadBaseGraph(data)
 
 
                 series1.dataPoints = [
-                        { label: "Loyalty", y: data.lstPrdic[0].YesPercentage },
-                        { label: "No Loyalty", y: data.lstPrdic[0].NoPercentage },
+                        { label: "Loyalty Eligible", y: data.lstPrdic[counter].YesPercentage },
+                        { label: "Loyalty Non Eligible", y: data.lstPrdic[counter].NoPercentage },
 
                 ];
 

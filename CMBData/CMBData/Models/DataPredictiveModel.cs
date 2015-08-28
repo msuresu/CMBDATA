@@ -32,6 +32,13 @@ namespace CMBDataAnalytics.Models
                 {
                     lstLylPrd.Add(GetLoyalityPredictor(lstCustomerInfo,strDisconnectReason,intRepeatCount,false));
                 }
+                else if (string.IsNullOrEmpty(strDisconnectReason) && intRepeatCount>0)
+                {
+                    List<LoyalityPredictor> lstResult  = null;
+                    lstResult.Add(GetLoyalityPredictor(lstCustomerInfo, strDisconnectReason, intRepeatCount, false));
+                    lstResult = lstResult.Where(x => x.RepeatCount == intRepeatCount).ToList();
+                    lstLylPrd.Add(lstResult[0]);
+                }
                 else
                 {
                     List<string> lstDisconnectReasons = lstCustomerInfo.Select(obj => obj.DisconnectReason).Distinct().ToList();
@@ -71,7 +78,7 @@ namespace CMBDataAnalytics.Models
                        YesCount = intYesCount,
                        YesPercentage = ((ftYesCount / (ftYesCount + ftNoCount)) * 100) ,
                        NoPercentage = ((ftNoCount / (intYesCount + ftNoCount)) * 100) ,
-                       TotalCount = intTotalCustomerCount
+                       TotalCount = intTotalCustomerCount                       
                    };
                 }
             }

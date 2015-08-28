@@ -36,20 +36,35 @@
         </div>
         @*<span class="col-md-4">Reason</span>
 
-        <select class="col-md-8" id="drpReason">
-            <option>All</option>
-            <option>Competition or Price</option>
-            <option>Service or Billing</option>
-        </select>*@
+            <select class="col-md-8" id="drpReason">
+                <option>All</option>
+                <option>Competition or Price</option>
+                <option>Service or Billing</option>
+            </select>*@
     </div>
     <div class="placeHolder">
         <div id="divGraphArea" class="col-md-12">
-            <div id="divRawGraph">
-                <div id="chartContainer" style="height: 300px; width: 100%;">
-                </div>
+            <div id ="divGraph1" class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <div id="chartContainer_0" style="height: 300px; width: 100%;">
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="divGraph2" class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <div id="chartContainer_1" style="height: 300px; width: 100%;">
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-
     </div>
 </div>
 <script src="~/Content/Scripts/DataPrediction.js"></script>

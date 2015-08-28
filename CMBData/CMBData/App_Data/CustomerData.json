@@ -400,13 +400,149 @@
 			1,
 			"RED"
 		],
-		[
-			"Competition or Price",
-			3,
-			1039,
-			"Brian",
-			1,
+        [
+            "Competition or Price",
+            3,
+            1039,
+            "Brian",
+            1,
+            "RED"
+        ],
+        [
+			"Service or Billing",
+			0,
+			1040,
+			"Candice",
+			0,
 			"RED"
+		],
+        [
+            "Service or Billing",
+            0,
+            1041,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1042,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1043,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1044,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1045,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1046,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1047,
+            "Lev",
+            0,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1048,
+            "Lev",
+            1,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1049,
+            "Lev",
+            1,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1050,
+            "Lev",
+            1,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1051,
+            "Lev",
+            1,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1052,
+            "Lev",
+            1,
+            "YELLOW"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1053,
+            "Lev",
+            1,
+            "RED"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1054,
+            "Lev",
+            1,
+            "Yellow"
+        ],
+        [
+            "Service or Billing",
+            0,
+            1055,
+            "Lev",
+            1,
+            "RED"
+        ],
+        [
+			"Service or Billing",
+			0,
+			1056,
+			"Lev",
+			1,
+			"YELLOW"
 		]
 	]
 }

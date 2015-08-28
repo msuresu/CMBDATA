@@ -9,6 +9,6 @@ install:
 before_install:
   - sudo apt-get install nunit-console
 before_script:
-  - nuget restore CMBData/CMBData.Test.sln
+  - nuget restore CMBData/CMBData/CMBData.Test.sln
 after_script:
-  - nunit-console CMBData/CMBData.Test/bin/Debug/CMBData.Test.dll
+  - nunit-console CMBData/CMBData/CMBData.Test/bin/Debug/CMBData.Test.dll

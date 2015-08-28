@@ -6,3 +6,7 @@ install:
   - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
   - dnvm upgrade
   - dnu restore
+before_install:
+  - sudo apt-get install nunit-console
+after_script:
+  - nunit-console CMBData/CMBData/CMBData.Test/bin/Debug/CMBData.Test.dll

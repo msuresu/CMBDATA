@@ -1,10 +1,11 @@
 ﻿
-
+var drpChartType = "Default";
 function fnGoToGraph() {
-    debugger;
+    //debugger;
     var txtTNNumber = $("#txtTnNumber").val();
     var txtRepeatCount = $("#txtRepeatCount").val();
     var drpReason = $("#drpReason").val();
+    drpChartType = $('#drpChartType').val();
     if (drpReason == "All")
     {
         drpReason = "";
@@ -34,7 +35,8 @@ function fnGoToGraph() {
 function fnLoadBaseGraph(data)
 {
     // ************parameters **********
-    var graphType = "column";
+    //debugger;
+    var graphType = drpChartType == "Default" ? "column" : drpChartType.toLowerCase();
 
     // ************parameters **********
     $('#chartContainer_0')[0].innerHtml = "";
@@ -43,28 +45,38 @@ function fnLoadBaseGraph(data)
     $('#chartContainer_1').find("canvas").height(0);
     $('#chartContainer_0').find("canvas").width(0);
     $('#chartContainer_1').find("canvas").width(0);
-
+    $("div").remove(".canvasjs-chart-toolbar");
+    
     if (data && data.lstPrdic)
     {
+        var titleXAxis = "Loyalty";
+        var titleYAxis = "Eligibllity in %";
+        var toolTipText = "{y} % <a href = {name}> {label}</a>";
+        var chartWidth = 150;
         if(data.lstPrdic.length > 0)
         {
-            
+
             for (var counter = 0; counter < data.lstPrdic.length; counter++)
             {
+                //toolTipText = toolTipText + (parseInt(data.lstPrdic[counter].YesPercentage) - 17 )+ " $";
                 var chart = new CanvasJS.Chart("chartContainer_" + counter);
                 
-                chart.options.axisY = { suffix: "%" };
+                chart.options.axisY = { suffix: "" };
                 //chart.options.title = { text: "WireLine Customer Survey" };
-                debugger;
+                //debugger;
                 chart.options.title = { text: data.lstPrdic[counter].DisconnectReason };
                 chart.options.axisX = {
-                    title: "Loyalty"
+                    title: titleXAxis
                 };
                 chart.options.axisY = {
-                    title: "Eligible %"
+                    title: titleYAxis
                 };
+                chart.width = {
+                    width: chartWidth,
+                };
+                
                 chart.options.exportEnabled = { enabled: true };
-                chart.options.zoomEnabled = { enabled: true };
+                //chart.options.zoomEnabled = { enabled: true };
                 chart.options.animationEnabled = { enabled: true };
 
                 var series1 = { //dataSeries - first quarter
@@ -73,7 +85,7 @@ function fnLoadBaseGraph(data)
                     //color: "red",
                     showInLegend: true,
                     animationEnabled: true,
-                    toolTipContent: "{y} % of Customers are Eligible for <a href = {name}> {label}</a> of 25$"
+                    toolTipContent: toolTipText
 
                 };
                 chart.options.data = [];
@@ -82,8 +94,8 @@ function fnLoadBaseGraph(data)
 
 
                 series1.dataPoints = [
-                        { label: "Loyalty Eligible", y: data.lstPrdic[counter].YesPercentage },
-                        { label: "Loyalty Non Eligible", y: data.lstPrdic[counter].NoPercentage },
+                        { label: "Eligible to use loyalty", y: data.lstPrdic[counter].YesPercentage },
+                        { label: "not Eligible to use loyalty", y: data.lstPrdic[counter].NoPercentage },
 
                 ];
 
@@ -95,18 +107,67 @@ function fnLoadBaseGraph(data)
 
                 chart.render();
             }
-            
+             
         }
     }
 
+  //fnDisplaySccondSet(data);
 
-   
+}
 
-   
+function fnDisplaySccondSet(data) {
+    // Second set of graph
+    var graphType = drpChartType == "Default" ? "column" : drpChartType.toLowerCase();
+    var titleXAxis = "Loyalty";
+    var titleYAxis = "Eligibllity in %";
+    var toolTipText = "{y} % Eligible to <a href = {name}> {label}</a>";
+    var chartWidth = 150;
 
+    for (var counter = 0; counter < data.lstPrdic.length; counter++) {
+        var chartId = counter == 0 ? 2 : chartId+counter;
+        var chart = new CanvasJS.Chart("chartContainer_" + chartId);
+
+        chart.options.axisY = { suffix: "" };
+        
+        chart.options.title = { text: data.lstPrdic[counter].DisconnectReason };
+        chart.options.axisX = {
+            title: titleXAxis
+        };
+        chart.options.axisY = {
+            title: titleYAxis
+        };
+        chart.width = {
+            width: chartWidth,
+        };
+
+        chart.options.exportEnabled = { enabled: true };
+        chart.options.animationEnabled = { enabled: true };
+
+        var series1 = { //dataSeries - first quarter
+            type: graphType,
+            name: "",
+            //color: "red",
+            showInLegend: true,
+            animationEnabled: true,
+            toolTipContent: toolTipText
+
+        };
+        chart.options.data = [];
+        chart.options.data.push(series1);
+
+        //debugger;
+        series1.dataPoints = [
+                { label: "Repeat Count", y: data.lstPrdic[counter].strRepeatCount },
+                { label: "Repeat Count1", y: data.lstPrdic[counter].strRepeatCount },
+
+        ];
+
+        chart.render();
+    }
 }
 
 
 
+
 window.onload = function () {
-    }
+}

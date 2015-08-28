@@ -1,4 +1,4 @@
 language: csharp 
-solution: CMBData.sln 
+solution: ./CMBData/CMBData.sln 
 mono: 
 - latest

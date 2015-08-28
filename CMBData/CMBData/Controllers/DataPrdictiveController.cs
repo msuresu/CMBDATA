@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CMBDataAnalytics.Models;
+using CMBDataAnalytics.UIEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +18,17 @@ namespace CMBData.Controllers
         [HttpPost]
         public JsonResult getPredictData(string strTN, string strRepeatCount, string strReason)
         {
-            return Json("sucess");
+            int intCount=0;
+            if(!string.IsNullOrWhiteSpace(strRepeatCount))
+            {
+                intCount = Convert.ToInt32(strRepeatCount);
+            }
+            string strFileName = Server.MapPath("~/App_Data/CustomerData.json");
+            DataPredictiveModel objPredictMdl = new DataPredictiveModel();
+            DisplayInfo Info = new DisplayInfo();
+            Info.lstPrdic = objPredictMdl.GetPredictedData(strFileName, strReason, intCount, strTN);
+
+            return Json(Info);
         }
     }
 }

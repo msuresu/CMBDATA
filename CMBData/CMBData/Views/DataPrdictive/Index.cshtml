@@ -6,61 +6,91 @@
 
 
 <div class="placeHolder">
+    <div class="table-responsive">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Customer ID</span>
+                        <input type="text" clsss="textcss" id="txtTnNumber" />
+                    </td>
+                    <td>
+                        <span>Repeat Count</span>
+                        <input type="text" clsss="textcss" id="txtRepeatCount" />
+                    </td>
+                    <td>
+                        <span>Reason</span>
 
-    <div class="table">
-        <div class="row col-md-12">
-            <div class="col-md-6">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <span class="col-md-6">Customer ID</span>
-                        <input class="col-md-6" type="text" clsss="textBoxCss" id="txtTnNumber" />
+                        <select id="drpReason">
+                            <option>All</option>
+                            <option>Competition or Price</option>
+                            <option>Service or Billing</option>
+                        </select>
+                    </td>
+                    <td><input type="button" value="Search" title="Search" onclick="fnGoToGraph()" id="btnSearch" /></td>
+                    <td></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @*<div class="table">
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <span class="col-md-6">Customer ID</span>
+                            <input class="col-md-6" type="text" clsss="textBoxCss" id="txtTnNumber" />
+                        </div>
+                        <div class="col-md-6">
+                            <span class="col-md-8">Repeat Count</span>
+                            <input class="col-md-4" type="text" clsss="textBoxCss" id="txtRepeatCount" />
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <span class="col-md-8">Repeat Count</span>
-                        <input class="col-md-4" type="text" clsss="textBoxCss" id="txtRepeatCount" />
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <span class="col-md-6">Graph Type</span>
+                        <select class="col-md-6" id="drpGraphType">
+                            <option>Default</option>
+                            <option>Bar</option>
+                            <option>Line</option>
+                            <option>Pie</option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <br />
+            <div class="row col-md-12">
                 <div class="col-md-12">
-                    <span class="col-md-6">Graph Type</span>
-                    <select class="col-md-6" id="drpGraphType">
-                        <option>Default</option>
-                        <option>Bar</option>
-                        <option>Line</option>
-                        <option>Pie</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row col-md-12">
-            <div class="col-md-12">
-                <div class="col-md-4">
-                    <span class="col-md-4">Reason</span>
+                    <div class="col-md-4">
+                        <span class="col-md-4">Reason</span>
 
-                    <select class="col-md-8" id="drpReason">
-                        <option>All</option>
-                        <option>Competition or Price</option>
-                        <option>Service or Billing</option>
-                    </select>
+                        <select class="col-md-8" id="drpReason">
+                            <option>All</option>
+                            <option>Competition or Price</option>
+                            <option>Service or Billing</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="button" value="Search" title="Search" onclick="fnGoToGraph()" id="btnSearch" />
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <input type="button" value="Search" title="Search" onclick="fnGoToGraph()" id="btnSearch" />
-                </div>
+
+
             </div>
 
 
-        </div>
 
-
-        <div id="divGraphArea" class="col-md-12">
-            <div id="divRawGraph">
-                <div id="chartContainer" style="height: 300px; width: 100%;">
-                </div>
+        </div>*@
+</div>
+<div class="placeHolder">
+    <div id="divGraphArea" class="col-md-12">
+        <div id="divRawGraph">
+            <div id="chartContainer" style="height: 300px; width: 100%;">
             </div>
         </div>
     </div>
-</div>
 
+</div>
 <script src="~/Content/Scripts/DataPrediction.js"></script>

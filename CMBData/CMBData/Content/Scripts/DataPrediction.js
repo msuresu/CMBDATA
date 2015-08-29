@@ -7,6 +7,7 @@ function fnGoToGraph() {
     var txtRepeatCount = $("#txtRepeatCount").val();
     var drpReason = $("#drpReason").val();
     drpChartType = $('#drpChartType').val();
+    graphType = drpChartType == "Default" ? "column" : drpChartType.toLowerCase();
     if (drpReason == "All") {
         drpReason = "";
     }

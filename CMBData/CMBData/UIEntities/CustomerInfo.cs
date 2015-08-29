@@ -24,6 +24,7 @@ namespace CMBDataAnalytics.UIEntities
         public int NoCount { get; set; }
         public int TotalCount { get; set; }
         public int RepeatCount { get; set; }
+        public string TNnumber { get; set; }
 
     }
 

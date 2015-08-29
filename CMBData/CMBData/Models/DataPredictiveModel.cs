@@ -23,10 +23,17 @@ namespace CMBDataAnalytics.Models
                 if (!string.IsNullOrWhiteSpace(strTNnumber) && (string.IsNullOrWhiteSpace(strDisconnectReason) || strDisconnectReason.Equals("All",StringComparison.OrdinalIgnoreCase)))
                 {
                    List<CustomerInfo> lstCustomers = lstCustomerInfo.Where(k => k.TNnumber.Equals(strTNnumber, StringComparison.OrdinalIgnoreCase)).ToList();
-                    foreach(CustomerInfo info in lstCustomers)
-                    {
-                        lstLylPrd.Add(GetLoyalityPredictor(lstCustomerInfo, info.DisconnectReason,info.RepeatCount, false));
-                    }
+                    //foreach(CustomerInfo info in lstCustomers)
+                    //{                        
+                        //lstLylPrd.Add(GetLoyalityPredictor(lstCustomerInfo, info.DisconnectReason,info.RepeatCount, false));
+                        //lstLylPrd[0].RepeatCount = info.RepeatCount;
+                    //}
+                   for (int i = 0; i < lstCustomers.Count; i++)
+                   {
+                       lstLylPrd.Add(GetLoyalityPredictor(lstCustomerInfo, lstCustomers[i].DisconnectReason, lstCustomers[i].RepeatCount, false));
+                       lstLylPrd[i].RepeatCount = lstCustomers[i].RepeatCount;
+                       lstLylPrd[i].TNnumber = lstCustomers[i].TNnumber;
+                   }
                 }
                 else if (!string.IsNullOrEmpty(strDisconnectReason))
                 {
@@ -78,7 +85,8 @@ namespace CMBDataAnalytics.Models
                        YesCount = intYesCount,
                        YesPercentage = ((ftYesCount / (ftYesCount + ftNoCount)) * 100) ,
                        NoPercentage = ((ftNoCount / (intYesCount + ftNoCount)) * 100) ,
-                       TotalCount = intTotalCustomerCount                       
+                       TotalCount = intTotalCustomerCount,
+                      // RepeatCount = 
                    };
                 }
             }

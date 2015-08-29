@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #eee;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -15,13 +16,45 @@ select,
 textarea {
     max-width: 280px;
 }*/
-
-
-.textcss{
-    background-color:white !important;
-    border:0.125rem solid #e7e8e9 !important;
+.Wpanel
+{
+    padding:.9375rem;
+    padding-top:0.62rem;
+}
+.wpanel-wrapper{
+    box-shadow:4px 4px 8px rgba(0,0,0,0.15);
+    -moz-box-shadow:4px 4px 8px rgba(0,0,0,0.15);
+    -webkit-box-shadow:4px 4px 8px rgba(0,0,0,0.15);
 }
 
-.test{
-    box-shadow:2px 2px 5px #EDEDF0;
+.Wpanel-content{
+    border-top:0;
+	margin: 10px 0;
+	background: #fff;
+	padding: 20px;
+	clear: both;
 }
+.lableStyle{
+    height:1.5rem !important;
+    color:#595a5d;
+    font-weight:bold;
+}
+.Wcustom-input-text{
+    background-color:white;
+    border:.125rem solid #595a5d !important;
+    height:2.63rem;
+    width:100%;
+}
+.Wcustom-input-text:focus{
+    border:.125rem solid #2e67b2 !important;
+}
+.wbuttonstyle{
+    display:inline-block;
+    border-radius:4px;
+    width:200px;
+    text-align:center;background-color:#333;
+    line-height:2.23rem;
+    color:white;
+
+}
+

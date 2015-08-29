@@ -2,58 +2,57 @@
     ViewBag.Title = "DataPredictive";
 }
 
-<h2>Data Prediction</h2>
 
-<div>
-    <div class="placeHolder">
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <span>Customer ID</span>
-                            <input type="text" clsss="textcss" id="txtTnNumber" />
-                        </td>
-                        <td>
-                            <span>Repeat Count</span>
-                            <input type="text" clsss="textcss" id="txtRepeatCount" />
-                        </td>
-                        <td>
-                            <span>Reason</span>
+<div class="Wpanel">
+    <div class="wpanel-wrapper">
+        <div class="Wpanel-content">
+            <div class="table-responsive">
+                <table class="table" border="0">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="lableStyle">Customer ID: </span>
+                                <input type="text" class="Wcustom-input-text" id="txtTnNumber" />
+                            </td>
+                            <td>
+                                <span class="lableStyle">Repeat Count: </span>
+                                <input type="text" class="Wcustom-input-text" id="txtRepeatCount" />
+                            </td>
+                            <td>
+                                <span class="lableStyle">Reason: </span>
 
-                            <select id="drpReason">
-                                <option>All</option>
-                                <option>Competition or Price</option>
-                                <option>Service or Billing</option>
-                            </select>
-                        </td>
-                        <td><input type="button" value="Search" title="Search" onclick="fnGoToGraph()" id="btnSearch" /></td>
-                        <td></td>
+                                <select id="drpReason" class="Wcustom-input-text">
+                                    <option>All</option>
+                                    <option>Competition or Price</option>
+                                    <option>Service or Billing</option>
+                                </select>
+                            </td>                           
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="lableStyle">Result Type: </span>
 
-                    </tr>
-                </tbody>
-            </table>
+                                <select id="drpChartType" class="Wcustom-input-text">
+                                    <option>Default</option>
+                                    <option>Pie</option>
+                                    <option>Line</option>
+                                    <option>Bar</option>
+                                </select>
+                            </td>
+                            <td colspan ="2">
+                                <br />
+                                <input type="button" value="Search"  class="wbuttonstyle" title="Search" onclick="fnGoToGraph()" id="btnSearch" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
-        <div class="table-responsive">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <span>Result Type</span>
-
-                            <select id="drpChartType">
-                                <option>Default</option>                                
-                                <option>Pie</option>
-                                <option>Line</option>
-                                <option>Bar</option>                                
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>        
     </div>
-        <div class="placeHolder">
+    <div class="wpanel-wrapper">
+        <div class="Wpanel-content">
             <div id="divGraphArea" class="col-md-12">
                 <div id="divGraph1" class="table-responsive">
                     <table class="table">
@@ -99,4 +98,5 @@
             </div>
         </div>
     </div>
+</div>
 <script src="~/Content/Scripts/DataPrediction.js"></script>

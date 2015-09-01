@@ -9,5 +9,6 @@ install:
 before_install:
   - sudo apt-get install nunit-console
 after_script:
+  - xbuild CMBData/CMBData.sln
   - nunit-console CMBData/CMBData/CMBData.Test/bin/Debug/CMBData.Test.dll
   

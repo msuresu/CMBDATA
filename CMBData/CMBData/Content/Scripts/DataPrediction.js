@@ -58,7 +58,7 @@ function fnLoadBaseGraph(data, options) {
 function fnDisplayFirstSet(data) {
     if (data && data.lstPrdic && data.lstPrdic.length > 0) {
         var titleXAxis = "Loyalty";
-        var titleYAxis = "Eligibllity in %";
+        var titleYAxis = "Probability in %";
         var toolTipText = "{y} % <a href = {name}> {label}</a>";
         var chartWidth = 150;
         for (var counter = 0; counter < data.lstPrdic.length; counter++) {
@@ -99,8 +99,8 @@ function fnDisplayFirstSet(data) {
 
 
                 series1.dataPoints = [
-                        { label: "Eligible to use loyalty", y: data.lstPrdic[counter].YesPercentage },
-                        { label: "Not eligible to use loyalty", y: data.lstPrdic[counter].NoPercentage },
+                        { label: "Probability to use loyalty", y: data.lstPrdic[counter].YesPercentage },
+                        { label: "Probability for not to use loyalty", y: data.lstPrdic[counter].NoPercentage },
 
                 ];
 

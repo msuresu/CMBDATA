@@ -1,4 +1,92 @@
 ﻿
+
+$(function () {
+
+});
+
+function DrawPieChart(htmlId, headerText, jsonData) {
+    var chart1 = "";
+    chart1 = new Highcharts.Chart({
+        chart: {
+            renderTo: htmlId,
+
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: headerText,
+            style: {
+                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || '#333333',
+                fontFamily: '\'Lato\', sans-serif', lineHeight: '18px', fontSize: '15px', fontWeghit: 'bold'
+            }
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y:.1f}%</b> ({point.timespent} Mins)'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.y:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                        fontFamily: '\'Lato\', sans-serif', lineHeight: '18px', fontSize: '11px'
+                    }
+                },
+                point: {
+                    events: {
+                        click: function (e) {
+                            
+                            var DesktopAnalyticsScope = angular.element($('#DesktopAnalytics-container')).scope();
+                            var date = "";
+                            if (DesktopAnalyticsScope && DesktopAnalyticsScope.DisplayHeaderType != "Week") {
+                                date = DesktopAnalyticsScope.ShowUsageDataForDate(DesktopAnalyticsScope.HeaderDisplayDate);
+                                dispDate = this.value;
+                            }
+                            if (!date) {
+                                date = "";
+                            }
+                            if (DesktopAnalyticsScope.SelectedAgent && htmlId == "piechart2") {
+                                $.ajax({
+                                    type: "POST",
+                                    url: GetCallDetails,
+                                    async: false,
+                                    data: "{ 'AgentID':'" + DesktopAnalyticsScope.SelectedAgent + "','DisplayDate':'" + date + "'}",
+                                    contentType: 'application/json; charset=utf-8',
+                                    dataType: "json",
+                                    success: function (Res) {
+
+                                        DesktopAnalyticsScope.BindCallDetailsData(Res);
+                                    },
+                                    error: function (jqXHR, textStatus, errorThrown) {
+
+                                }
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        series: [{
+
+            name: "Applications",
+            colorByPoint: true,
+            data: jsonData
+        }],
+        exporting: {
+            buttons: {
+                contextButton: {
+                    enabled: false
+                }
+            }
+        }
+    });
+}
+
+
 var drpChartType = "Default";
 var graphType = drpChartType == "Default" ? "column" : drpChartType.toLowerCase();
 function fnGoToGraph() {

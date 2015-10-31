@@ -1,7 +1,25 @@
 ﻿
 
 $(function () {
+ dashboardFactory.getDashboardDetails = function (request) {
+        var deferred = $q.defer();
 
+        $http({
+            url: DbUrl.LiveCallDetails,
+            dataType: "json",
+            method: "POST",
+            data: JSON.stringify(request),
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        }).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (error) {
+            deferred.reject("Error");
+        });
+
+        return deferred.promise;
+    }
 });
 
 function DrawPieChart(htmlId, headerText, jsonData) {

@@ -1,6 +1,7 @@
 ﻿
 
 $(function () {
+ mobileCoachApp.factory('dashboardFactory', ['$http', '$interval', '$window', '$q', '$sce', '$rootScope', function ($http, $interval, $window, $q, $sce, $rootScope) {
  dashboardFactory.getDashboardDetails = function (request) {
         var deferred = $q.defer();
 

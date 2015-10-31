@@ -1,6 +1,29 @@
 ﻿
 
 $(function () {
+     dashboardFactory.getDashboardDetails(request).then(function (livecallDataRes) {
+            dashboardFactory.Tracker.shouldNotify = false;
+            if (request.isDrillDownView && request.isDrillDownView != "Y") {
+
+                if ($scope.teamInfo.TeamRefreshTime < livecallDataRes.TeamRefreshTime) {
+                    $scope.teamInfo.TeamRefreshTime = livecallDataRes.TeamRefreshTime;
+
+                    //commented code moved to getTeaminfo method
+                    //    CommonService.getUserTeams().then(function (teamList) {
+                    //        $scope.teamList = teamList;
+                    //    });                  
+
+
+                    GetTeamInfo($scope.teamInfo.DisplayTeam.Id, true);
+                }
+            }
+            var mList = $scope.teamInfo.DisplayTeam.MemberList;
+            dashboardFactory.applySortNHighlight(mList, livecallDataRes.LiveCallDetail, $scope.selectedHighlights);
+            $scope.DashboardContent = livecallDataRes.LiveCallDetail;
+            UpdateDashboardView();
+        }).finally(function () {
+           //  refreshTimer = $window.setTimeout(getLatestLiveCallDetails, TimerInterval.REFRESH_INTERVAL);
+        });
  mobileCoachApp.factory('dashboardFactory', ['$http', '$interval', '$window', '$q', '$sce', '$rootScope', function ($http, $interval, $window, $q, $sce, $rootScope) {
  dashboardFactory.getDashboardDetails = function (request) {
         var deferred = $q.defer();
